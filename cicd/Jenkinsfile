@@ -21,6 +21,6 @@ node {
       sh "cd test/Api.IntegrationTests && npm install && npm run api-test-prod"
     }
     stage("Load Tests") {
-      sh "sudo npm install -g loadtest && sudo loadtest http://168.61.5.6/WeatherForecastByMBRHE -t 20 -c 10"
+      sh "sudo npm install -g loadtest && sudo loadtest http://40.78.21.213/WeatherForecastByMBRHE -t 20 -c 10"
     }
 }

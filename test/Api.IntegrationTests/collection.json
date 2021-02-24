@@ -27,7 +27,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://168.61.5.6/WeatherForecastByMBRHE",
+					"raw": "http://40.78.21.213/WeatherForecastByMBRHE",
 					"protocol": "http",
 					"host": [
 						"168",
