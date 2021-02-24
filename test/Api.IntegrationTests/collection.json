@@ -30,10 +30,10 @@
 					"raw": "http://40.78.21.213/WeatherForecastByMBRHE",
 					"protocol": "http",
 					"host": [
-						"168",
-						"61",
-						"5",
-						"6"
+						"40",
+						"78",
+						"21",
+						"213"
 					],
 					"path": [
 						"WeatherForecastByMBRHE"
