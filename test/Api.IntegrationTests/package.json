@@ -1,0 +1,12 @@
+{
+  "name": "api.integrationtests",
+  "version": "1.0.0",
+  "description": "API Integration Tests",
+  "scripts": {
+    "api-test-prod": "newman run collection.json"
+  },
+  "author": "Ismail Al-Husseini",
+  "dependencies": {
+    "newman": "^5.2.2"
+  }
+}

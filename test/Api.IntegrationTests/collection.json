@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "5327d0bc-67ca-477d-9316-6de3f5ff097c",
+		"name": "WeatherForecastByMBRHE-Integration-Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get WeatherForecast By MBRHE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"temperatureC\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://168.61.5.6/WeatherForecastByMBRHE",
+					"protocol": "http",
+					"host": [
+						"168",
+						"61",
+						"5",
+						"6"
+					],
+					"path": [
+						"WeatherForecastByMBRHE"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
