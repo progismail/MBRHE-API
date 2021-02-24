@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoapi
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: demoapiapp
+  template:
+    metadata:
+      labels:
+        app: demoapiapp
+        component: demoapi
+    spec:
+      imagePullSecrets:
+      - name: regsecret
+      containers:
+      - name: demoapi
+        image: YourACRName.azurecr.io/demoapi:build_number
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: demoapiservice
+spec:
+  ports:
+  # 'targetPort' is the container port and 'port' is what it maps to on the host
+  # The application within the pod should listen on 'targetPort' and other components
+  # wishing to use the service should communicate on 'port'.
+  - name: http
+    port: 80
+    targetPort: 80
+  selector:
+    app: demoapiapp
+    component: demoapi
+  # Setting a service type as loadbalancer means that the service should be exposed
+  # publicly (default behavior is to only expose within the cluster) using a load
+  # balanced supplied by the Kubernetes host environment (Azure Container
+  # Service, for example).
+  type: LoadBalancer
+
